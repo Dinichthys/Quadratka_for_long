@@ -76,10 +76,10 @@ int main(){
 
 }
 
-long mpow (long a, long b)
+typ mpow (typ a, typ b)
 {
-    long k = 1;
-    for (long i = 0; i<b; i++)
+    typ k = 1;
+    for (typ i = 0; i<b; i++)
         k*=a;
     return k;
 }
