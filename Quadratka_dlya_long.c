@@ -11,27 +11,27 @@ int main(){
         if (b==0){
             if (c==0){
                 printf("Roots are all numbers\n");
-                return 1;
+                return 0;
             }else{
                 printf("Roots don't exist\n");
-                return 1;
+                return 0;
             }
         }else{
             printf("There is only one root. x = %ld / %ld", -c,b);
-            return 1;
+            return 0;
         }
     }
     typ d = b * b - 4 * a * c;
     if (d<0){
         printf("There are no roots\n");
-        return 1;
+        return 0;
     }else if (d==0){
         if (b%2==0){
             printf ("Roots are similar and equal %ld \n", -b/2);
-            return 1;
+            return 0;
         }else{
             printf ("Roots are similar and equal %.1f \n", (float)(-b)/2);
-            return 1;
+            return 0;
         }
     }
     typ del[d/2+1];
@@ -58,22 +58,24 @@ int main(){
                 printf(" x1 = %.1f \n x2 = %.1f \n", ((float)(-b+k))/2, ((float)(-b-k))/2);
             }
         }else{
-        if (k>0){
-            if ((b%2==0) && (k%2==0)){
-                printf (" x1 = %ld + %ld * √%ld \n x2 = %ld - %ld * √%ld \n", -b/2, k/2, d, -b/2, k/2, d);
+            if (k>0){
+                if ((b%2==0) && (k%2==0)){
+                        printf (" x1 = %ld + %ld * √%ld \n x2 = %ld - %ld * √%ld \n", -b/2, k/2, d, -b/2, k/2, d);
+                }else{
+                    printf (" x1 = (%ld + %ld * √%ld) / 2 \n x2 = (%ld - %ld * √%ld) / 2 \n", -b, k, d, -b, k, d);
+                }
             }else{
-                printf (" x1 = (%ld + %ld * √%ld) / 2 \n x2 = (%ld - %ld * √%ld) / 2 \n", -b, k, d, -b, k, d);
-            }
-        }else{
-            if ((b%2==0) && (k%2==0)){
-                printf (" x1 = %ld + %ld * √%ld \n x2 = %ld - %ld * √%ld \n", -b/2, -k/2, d, -b/2, -k/2, d);
-            }else{
-                printf (" x1 = (%ld + %ld * √%ld) / 2 \n x2 = (%ld - %ld * √%ld) / 2 \n", -b, -k, d, -b, -k, d);
+                if ((b%2==0) && (k%2==0)){
+                    printf (" x1 = %ld + %ld * √%ld \n x2 = %ld - %ld * √%ld \n", -b/2, -k/2, d, -b/2, -k/2, d);
+                }else{
+                    printf (" x1 = (%ld + %ld * √%ld) / 2 \n x2 = (%ld - %ld * √%ld) / 2 \n", -b, -k, d, -b, -k, d);
+                }
             }
         }
-        }
+    }else{
+        printf (" x1 = (%ld + √%ld) / 2 \n x2 = (%ld - √%ld) / 2 \n", -b, d, -b, d);
     }
-
+    return 0;
 }
 
 typ mpow (typ a, typ b)
