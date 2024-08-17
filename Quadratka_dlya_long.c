@@ -38,11 +38,9 @@ int main(){
     typ r = d / 2;
     for (typ i=2; i <= r; i++){
         del[i]=0;
-        if (d%i==0){
-            while (d%i==0){
-                d/=i;
-                del[i]++;
-            }
+        while (d%i==0){
+            d/=i;
+            del[i]++;
         }
     }
     if (d==1){
